@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Div</title>
+    <style>
+        .ico {
+            height: 50px;
+            width: 50px;
+            cursor: pointer;
+            border-radius:50%;
+        }
+
+        button {
+            margin-left: 10px
+        }
+
+        #content {
+            width: 100%;
+            height:200px;
+            background-color: aquamarine;
+
+        }
+
+        #content>div {
+            background-color: blue;
+            width: 25%;
+            float: left;
+            color: #fff;
+            height: 190px;
+            text-decoration: overline;
+        }
+
+        .p-5 {
+            padding: 5px 5px;
+            margin-left: 5px
+        }
+        .img-bg{
+            display:block;
+            background-image: url('https://placehold.co/50x50');
+        }
+        .text-center{
+            text-align: center;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="menuDiv">
+        <div>
+            <button>Home</button><button>About</button><button>Gallery</button><button>Contact</button><button>etc.</button>
+        </div>
+        <div>
+            <img src="https://placehold.co/50x50" class="ico" alt="">
+            <img src="https://placehold.co/50x50" class="ico" alt="">
+            <img src="https://placehold.co/50x50" class="ico" alt="">
+            <div class="ico img-bg"></div>
+        </div>
+    </div>
+
+
+
+    <div id="content">
+        <div class="p-5 text-center">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aliquam aut voluptatem voluptatibus
+            accusamus inventore saepe esse! Cumque aliquid dolor recusandae repellat, tempore illum excepturi.
+            Recusandae veniam officiis quo quae ipsum?</div>
+        <div class="p-5 text-center">Quisquam sit esse libero exercitationem et voluptatibus dolore aspernatur obcaecati culpa odit
+            ab repellendus asperiores, reprehenderit nam quam nobis tempore hic cupiditate veniam natus? Sit facilis
+            quos illo eum assumenda?</div>
+        <div class="p-5 text-center">Nulla iste possimus rerum voluptatem voluptates recusandae non quod, distinctio adipisci
+            tempora inventore autem odit ipsum porro esse, temporibus enim deserunt quidem voluptas nobis cumque
+            reiciendis? Consequuntur a vero repudiandae.</div>
+    </div>
+
+
+</body>
+
+</html>

@@ -1,0 +1,2 @@
+play with float, text, font properties.
+replicate the same webpage from previous day using divs and no table allowed.
