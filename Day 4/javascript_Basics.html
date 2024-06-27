@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #magic {
+            height: 200px;
+            width: 100%;
+            background-color: red;
+            border:1px solid #000;
+        }
+    </style>
+</head>
+<body>
+    <div id="magic"><p>Hi</p>
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea natus, ipsa voluptate officia dolorum nesciunt amet ab iusto ipsum modi velit rem, iure deleniti atque. Mollitia autem voluptatem soluta asperiores.</div>
+    
+        <br><button onclick="showAlert()">Click me</button>
+    <br><button onclick="changeDivColor()">Change Div Color</button>
+    <br><button onclick="hideDiv()">Hide Div</button>
+    <br>
+    <hr>
+    <input id="message" type="password">
+    <br><br>
+    <button onclick="showMessage()"> Show Hidden message in input box</button>
+
+        <hr>
+        <input id="age" placeholder="Enter Age in number" type="text"><input id="msg" disabled type="text"><br>
+        <button onclick="logicFun()">Can i Vote?</button>
+
+    <script>
+        // alert('Welcome Back!!');
+        // confirm('Do you want to continue?')
+        //prompt("Enter your age!");
+
+        // let,var,const
+
+        var a = 10;
+        var b = "abc";
+        var c = 10.5;
+        var shoppingList = ["apple","onion","tommato"];
+        var person = {
+            name: "puneet",
+            age: 26
+        };
+        var people = [person, person];
+
+        console.log(a);
+        console.log(shoppingList);
+        console.log(person);
+        console.log(people);
+
+        function showAlert(){
+            alert("hi")
+        }
+        function showMessage(){
+            //alert("showMessage")
+            alert(document.getElementById("message").value);
+        }
+
+        function changeDivColor(){
+            document.getElementById("magic").style.backgroundColor="blue" 
+        }
+        function hideDiv(){
+            document.getElementById("magic").style.display="none" 
+        }
+
+
+        function logicFun(){
+            var txtValue = document.getElementById('age').value
+            if (txtValue === ""){
+                document.getElementById('msg').value= "Enter Age Please"
+                return
+            }
+            
+            var age = parseInt(txtValue);
+            if (age>=18){
+                document.getElementById('msg').value= "You Can vote!"  
+            }else{
+                document.getElementById('msg').value= "You Can't vote!"  
+
+            }
+            console.log("You've entered", age);
+            console.log(typeof(age))
+            
+
+
+            // parseInt() , parseFloat()
+
+
+        }
+
+
+    </script>
+
+
+</body>
+</html>
