@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch Data</title>
+    <style>
+        #detailsDiv{
+            position: absolute;
+            height: 200px;
+            width:50%;
+            z-index: 10;
+            right: 10px;
+            background-color: aqua;
+            top:10px;
+        }
+    </style>
+</head>
+
+<body onload="fetchUsers()">
+    <button onclick="fetchUsers();" hidden>Load users</button>
+    <div id="dataDiv">
+
+    </div>
+    <div id="detailsDiv">
+
+    </div>
+    <script>
+        // Json placeholder website : https://jsonplaceholder.typicode.com/
+        var usersData = [];
+        function fetchUsers() {
+           
+            console.log('1')
+            //method chaining
+            fetch('https://jsonplaceholder.typicode.com/users')
+                .then(function (response){ 
+                    return response.json()
+                } )
+                .then(function (json){
+                    console.log(json)
+                    usersData = json;
+                    for(let i = 0; i< json.length; i++){
+                        //console.log(json[i].name)
+                        document.getElementById("dataDiv").innerHTML += "<button onclick='showOne("+i+")' >"+json[i].name+"</button><br>";
+                    }
+                })
+            console.log('3')
+        }
+        function showOne(id){
+            document.getElementById("detailsDiv").innerHTML = ""
+            console.log(usersData[id])
+            //document.getElementById("detailsDiv").innerHTML = "Name = "+usersData[id].name +"<br>"+ "Company = "+usersData[id].company.name 
+            keys = Object.keys(usersData[0])
+            for(let i=0; i<keys.length;i++){
+                //console.log(keys[i] +" = "+ usersData[id][keys[i]])
+                document.getElementById("detailsDiv").innerHTML += keys[i] +" = "+ usersData[id][keys[i]] +"<br>"
+            }
+        }
+   </script>
+</body>
+
+</html>
