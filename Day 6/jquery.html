@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jquery</title>
+    <style>
+       .bg-red{
+            background-color: red;
+            color:white;
+        }
+        .text-red{
+            color: red;
+        }
+        .text-orange{
+            color:orange;
+        }
+        .text-l-green{
+            color: lightgreen;
+        }
+        .text-green{
+            color: green;
+        }
+    </style>
+
+
+</head>
+<body>
+    <button id="mybtn1" >Click me!</button>
+    <button id="mybtn2" >Click me!</button>
+    <div id="mydiv" class="bg-red" >Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam, dolorum? Facilis vitae dolores est sunt maiores, ex eaque voluptates consequatur velit. Id dolores voluptates voluptatem excepturi minima, asperiores distinctio adipisci.</div>
+   
+    <hr>
+   <!-- <input type="password" id="pwd" onkeyup="console.log(this.value)"> -->
+   <input type="password" placeholder="Enter pwd" id="pwd">
+   <div id="msg">message</div>
+   
+  
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" 
+integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" 
+crossorigin="anonymous"></script>
+
+<script>
+    $(document).ready(function(){
+        //Only works once after the given time interval
+        // setTimeout(function(){
+        //     $("#mybtn").click(); //will consolelog the message
+        // },2000)
+
+        // works again and again after the time interval
+        // setInterval(function(){
+        //     $("#mybtn").click()
+        // },2000)
+
+        
+        $("#mybtn1,#mybtn2").click(function(){
+            console.log("Hi")
+        });
+
+
+        $("#pwd").keyup(function(){
+            
+            let length = $(this).val().length;
+            if(length<=4){
+                $("#msg").html("Weak Password").addClass("text-red")
+            }else if (length<=5 && length<=8){
+                $("#msg").html("Normal Password").addClass("text-orange")
+            } else if(length<9 && length<=12){
+                $("#msg").html("Strong Password").addClass("text-l-green")
+            }else{
+                $("#msg").html("Very Strong Password").addClass("text-green")
+
+            }
+        })
+
+
+
+    });
+</script>
+
+</body>
+</html>
