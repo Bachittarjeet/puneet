@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+    <table border="1" class="font-mono italic">
+        <thead>
+            <tr >
+                <th>Post ID</th>
+                <th>Title</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody id="postsContent">
+            
+        </tbody>
+
+    </table>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            let abc  = "Hello";
+            function getAllPosts() {
+                $.get("https://jsonplaceholder.typicode.com/posts",function(response){
+                        console.table(response)
+
+                        for(let i=0; i<10; i++){
+                           let tr = $("<tr>");
+
+                            tr.append("<td>"+response[i].id +"</td>");
+                            tr.append("<td>"+response[i].title +"</td>");
+                            tr.append("<td><button class='rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600'>View Full</button> <button onClick='getComments("+response[i].id+")'>View Comments</button></td>");
+                            
+                            $("#postsContent").append(tr);
+
+
+                        }                        
+                })
+            }
+
+            function getComments(id){
+                let url = "https://jsonplaceholder.typicode.com/comments?postId="+id;
+                $.get(url,function(response){
+                    console.table(response)
+                });
+
+            }
+            getAllPosts();
+        });
+    </script>
+
+
+</body>
+
+</html>
