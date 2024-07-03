@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Percentage Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+        .container div {
+            margin-bottom: 15px;
+        }
+        .container input[type="text"] {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .container button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .container button:hover {
+            background-color: #0056b3;
+        }
+        .container output {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div>
+            <h2>Percentage Calculator</h2>
+        </div>
+        <div>
+            Enter Physics Marks: <input type="text" id="phymarks"> <br>
+            Enter Maths Marks: <input type="text" id="mathmarks"> <br>
+            Enter Chemistry Marks: <input type="text" id="chemmarks"> <br>
+            Enter Biology Marks: <input type="text" id="biomarks">
+        </div>
+        <div>
+            <button onclick="calcPercn()">Calculate</button>
+        </div>
+        <div>
+            Result is <output id="resultOutput"></output>
+        </div>
+        <div>
+            Percentage is <output id="percentageOutput"></output>
+        </div>
+    </div>
+
+    <script>
+        function calcPercn(){
+            var p = parseFloat(document.getElementById('phymarks').value);
+            var m = parseFloat(document.getElementById('mathmarks').value);
+            var c = parseFloat(document.getElementById('chemmarks').value);
+            var b = parseFloat(document.getElementById('biomarks').value);
+
+            if ((isNaN(p) || isNaN(m) || isNaN(c) || isNaN(b)) || 
+                (p < 0 || p > 100 || m < 0 || m > 100 || c < 0 || c > 100 || b < 0 || b > 100)) {
+                alert("Please enter valid numbers between 0 and 100 in all fields");
+                return;
+            }
+
+            var total = p + m + c + b;
+            var percentage = (total / 400) * 100;
+
+            var result;
+            if (percentage >= 35) {
+                result = "PASS";
+            } else {
+                result = "FAIL";
+            }
+
+            document.getElementById('resultOutput').innerText = result;
+            document.getElementById('percentageOutput').innerText = percentage.toFixed(2) + "%";
+        }
+    </script>
+</body>
+</html>

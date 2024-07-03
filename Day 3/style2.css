@@ -1,0 +1,74 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    background-color:#2b3a42;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+}
+
+.sky {
+    text-align: center;
+}
+
+.sky img {
+    width: 100%;
+    height: auto;
+}
+
+.click {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #f1f1f1;
+}
+
+.buttons button {
+    margin: 0 10px;
+    padding: 10px 20px;
+    background-color: #ddd;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.buttons button:hover {
+    background-color: #bbb;
+}
+
+.logos {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    margin: 0 5px;
+    width: 30px;
+    height: 30px;
+}
+
+.lorem {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    background-color: #e6e6e6;
+}
+
+.lorem div {
+    width: 30%;
+    background-color: #d3d3d3;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.footer {
+    text-align: center;
+    padding: 10px 0;
+    background-color: #333;
+    color: white;
+}
